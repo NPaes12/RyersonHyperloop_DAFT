@@ -1,11 +1,10 @@
 function [ack]=tareGauge(due)
-brk=1;
-while brk
-    fprintf(due,'t');
-    msg=fscanf(due);
-    if contains(msg,'ack')
-        brk=0;
-        ack=1;
-    end
+fprintf(due,'t');
+pause(5)
+ack=fscanf(due,'%d');
+
+if isempty(ack)
+    ack=0;
 end
+
 end
